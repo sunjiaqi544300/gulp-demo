@@ -1,0 +1,18 @@
+@url_img: "../src/img";
+
+
+*{
+  margin:  0;
+  padding: 0;
+  .mian {
+    text-align: center;
+    background-image: url('@{url_img}/55.jpg')
+  }
+}
+.mixin() {
+  box-shadow+: inset 0 0 10px #555;
+}
+.myclass {
+  .mixin();
+  box-shadow+: 0 0 20px black;
+}
