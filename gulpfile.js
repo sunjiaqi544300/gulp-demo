@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var babel = require('gulp-babel');
 var imagemin = require('gulp-imagemin');      //压缩图片
 const browserSync = require('browser-sync');  //开启服务
+var concat = require('gulp-concat');//合并文件 --合并只是放一起--压缩才会真正合并相同样式
 const reload = browserSync.reload;           
 // var reload = require('reload');
 var fileinclude = require('gulp-file-include');
@@ -57,6 +58,7 @@ const lessStyle = () => {
           })
       )
       .pipe(cleanCSS())
+      .pipe(concat('main.css')) //合并css
       .pipe(gulp.dest('./dist/css/'))
       .pipe(
           reload({
